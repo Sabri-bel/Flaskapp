@@ -1,4 +1,5 @@
-<!--
+
+<!--this is the base page that can be used a template for all the pages-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,21 +10,18 @@
 <body>
     <nav>
         <ul>
-
+            <!--link the flask - call the appropriate function with url_for-->
+            <!--curtly brackets contain an expression-->
             <li><a href="{{ url_for('index') }}">Home</a></li>
             <li><a href="{{ url_for('about') }}">About</a></li>
             <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            <li><a href="{{ url_for('career') }}">Career</a></li>
         </ul>
     </nav>
 
-    flask will inherit everytong from the base template then it looks for a block element
-    all the part above will be replaced by the following:-->
-
-    {% extends "base.html" %}
+    <!--defining a block where we can inject content into -->
+    <!--curly+percentage control the flow of the template -->
     {% block content %}
-
-    <h1>Home Page</h1>
-
     {% endblock %}
 
 </body>
