@@ -1,6 +1,7 @@
+import os #from the standard python library
 # pip3 install Flask for install the framework in gitpod
 # import the Flask class (capital F means class name)
-from flask import Flask
+from flask import Flask, render_template
 
 # the convention requires that the instance will be stored in a variable called app
 # the first argument is the name of the application module/ package
@@ -13,4 +14,14 @@ app = Flask(__name__)
 # browse to the root directory and trigger the index function
 @app.route("/")
 def index():
-    return "hello World!"
+    return render_template("index.html")
+
+
+if __name__ == "__main__":
+    app.run(
+        #if this is true, run the app with the following default arguments:
+        host=os.environ.get("IP", "0.0.0.0"),
+        port=int(os.environ.get("PORT", "5000")),
+        # debug=True must be set to false in production system and before submit project 
+        # this is a security flaw IMPORTANT!!!
+        debug=True)
