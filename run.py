@@ -12,9 +12,20 @@ app = Flask(__name__)
 
 #using the app route decorator (@ -> called decorator / way of wrapping functions)
 # browse to the root directory and trigger the index function
-@app.route("/")
+@app.route("/") # / is for top level domain
 def index():
     return render_template("index.html")
+
+
+#link the about page to Flask/ also called routing 
+@app.route("/about") #/about is the path
+def about():
+    return render_template("about.html")
+
+
+@app.route("/contact")
+def contact():
+    return render_template("contact.html")
 
 
 if __name__ == "__main__":
